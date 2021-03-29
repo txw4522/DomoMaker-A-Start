@@ -38,10 +38,10 @@ app.use(bodyParser.urlencoded({
   extended: true,
 }));
 app.use(session({
-    key: 'sessionid', 
-    secret: 'Domo Arigato',
-    resave: true, //tells the sesssion module to refresh the key to keep it
-    saveUninitialized: true, //tells the module to alays make sessions even when not logged in, automatically generating each user a session key 
+  key: 'sessionid',
+  secret: 'Domo Arigato',
+  resave: true, // tells the sesssion module to refresh the key to keep it
+  saveUninitialized: true,
 }));
 
 app.engine('handlebars', expressHandlebars({ defaultLayout: 'main' }));
