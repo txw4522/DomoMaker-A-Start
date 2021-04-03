@@ -1,6 +1,6 @@
 const models = require('../models');
 
-const { Domo } = models;
+const Domo = models.Domo;
 
 const makerPage = (req, res) => {
   Domo.DomoModel.findByOwner(req.session.account._id, (err, docs) => {
@@ -11,7 +11,7 @@ const makerPage = (req, res) => {
     return res.render('app', { domos: docs });
   });
 };
-const MakeDomo = (req, res) => {
+const makeDomo = (req, res) => {
   if (!req.body.name || !req.body.age) {
     return res.status(400).json({ error: 'RAWR! Both age and name are required' });
   }
@@ -26,7 +26,7 @@ const MakeDomo = (req, res) => {
 
   const domoPromise = newDomo.save();
 
-  domoPromise.then(() => res.json({ reidrect: '/maker' }));
+  domoPromise.then(() => res.json({ redirect: '/maker' }));
 
   domoPromise.catch((err) => {
     console.log(err);
@@ -41,4 +41,4 @@ const MakeDomo = (req, res) => {
 };
 
 module.exports.makerPage = makerPage;
-module.exports.make = MakeDomo;
+module.exports.make = makeDomo;
