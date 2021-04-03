@@ -11,7 +11,7 @@ const session = require('express-session');
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
-const dbURL = process.env.MONGODB_URI || 'mongodb://localhost/DomoMaker';
+const dbURL = 'mongodb+srv://tonyweng711:Silverbite55798615@cluster0.1nyoa.mongodb.net/test';
 
 // setup mongoose options to sue newer functionality
 const mongooseOptions = {
